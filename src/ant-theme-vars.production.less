@@ -1,0 +1,31 @@
+@import "~antd/lib/style/index.less";
+@import "~antd/lib/style/components.less";
+
+@font-size-base: 15px;
+@primary-color: #f7bd01;
+@card-head-background: @primary-color;
+@table-header-bg: @primary-color;
+
+// ICONFONT
+@icon-url: "/fontawesome/fontawesome-webfont";
+@fa-version: "4.7.0";
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('@{icon-url}.eot?v=@{fa-version}');
+  src: url('@{icon-url}.eot?#iefix&v=@{fa-version}') format('embedded-opentype'),
+  url('@{icon-url}.woff2?v=@{fa-version}') format('woff2'),
+  url('@{icon-url}.woff?v=@{fa-version}') format('woff'),
+  url('@{icon-url}.ttf?v=@{fa-version}') format('truetype'),
+  url('@{icon-url}.svg?v=@{fa-version}#fontawesomeregular') format('svg');
+  // src: url('@{fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import "./styles/icons.less";
+
+.ant-calendar-picker-icon:after {
+  content: @fa-var-calendar;
+  font-family: "FontAwesome";
+}

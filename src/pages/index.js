@@ -1,0 +1,12 @@
+export { default as PreliminarySettlementSteps } from './newVehicle/preliminarySettlementSteps';
+export { default as SettlementSteps } from './newVehicle/settlementSteps';
+export { default as Objectives } from './newVehicle/objectives';
+export { default as BonusCriteria } from './newVehicle/bonusCriteria';
+export { default as Warranty } from './postSale/warranty';
+export { default as NetworkShopping } from './postSale/networkShopping';
+export { default as Standard } from './postSale/standard';
+export { default as Period } from './postSale/periodList';
+export { default as NonDerogateLiquidation } from './postSale/nonDerogateLiquidation';
+export { default as PerformConsolidated } from './postSale/performConsolidated';
+export { default as Eventuality } from './postSale/eventuality';
+export { default as Accomplishments } from './newVehicle/accomplishments';

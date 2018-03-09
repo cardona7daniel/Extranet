@@ -1,0 +1,111 @@
+import {
+  REQUEST_EVENTUALITY_LIST,
+  REQUEST_EVENTUALITY_LIST_EMPTY,
+  REQUEST_EVENTUALITY_LIST_FAILED,
+  REQUEST_EVENTUALITY_LIST_SUCCESS,
+  REQUEST_EVENTUALITY_DELETE_SUCCESS,
+  REQUEST_EVENTUALITY_DELETE_FAILED,
+  REQUEST_EVENTUALITY_SAVE_FAILED,
+  REQUEST_EVENTUALITY_SAVE_PROGRESS,
+  REQUEST_EVENTUALITY_SAVE_SUCCESS,
+  REQUEST_EVENTUALITY_UPDATE_FAILED,
+  REQUEST_EVENTUALITY_UPDATE_PROGRESS,
+  REQUEST_EVENTUALITY_UPDATE_SUCCESS,
+  REQUEST_EVENTUALITY_DATA_CLEAR,
+  REQUEST_EVENTUALITY_SAVE_STATE_PROGRESS,
+  REQUEST_EVENTUALITY_SAVE_STATE_SUCCESS,
+  REQUEST_EVENTUALITY_SAVE_STATE_FAILED,
+  REQUEST_EVENTUALITY_GET_COLUMNS_SEGMENT_PROGRESS,
+  REQUEST_EVENTUALITY_GET_COLUMNS_SEGMENT_SUCCESS,
+  REQUEST_EVENTUALITY_GET_COLUMNS_SEGMENT_FAILED,
+  REQUEST_EVENTUALITY_GET_COLUMNS_SEGMENT_EMPTY,
+  REQUEST_VALIDATE_EVENTUALITY_PROGRESS,
+  REQUEST_VALIDATE_EVENTUALITY_SUCCESS,
+  REQUEST_VALIDATE_EVENTUALITY_FAILED,
+  REQUEST_VALIDATE_EVENTUALITY_EMPTY,
+} from './const';
+
+const initialState = {
+  ltsEventuality: [],
+  loading: false,
+  aDataForm: [],
+  ltColumnSegment: [],
+  dataValidateEventuality: [],
+};
+
+export default function eventualityPVApp(state = initialState, action) {
+  switch (action.type) {
+    case REQUEST_EVENTUALITY_LIST_SUCCESS: {
+      return {
+        ...state,
+        ltsEventuality: action.ltsEventuality,
+        loading: false,
+      };
+    }
+    case REQUEST_VALIDATE_EVENTUALITY_SUCCESS: {
+      return {
+        ...state,
+        dataValidateEventuality: action.dataValidateEventuality,
+        loading: false,
+      };
+    }
+    case REQUEST_EVENTUALITY_DELETE_SUCCESS:
+    case REQUEST_EVENTUALITY_DELETE_FAILED:
+    case REQUEST_EVENTUALITY_UPDATE_PROGRESS:
+    case REQUEST_EVENTUALITY_UPDATE_FAILED:
+    case REQUEST_EVENTUALITY_LIST_EMPTY:
+    case REQUEST_EVENTUALITY_GET_COLUMNS_SEGMENT_EMPTY:
+    case REQUEST_VALIDATE_EVENTUALITY_EMPTY:
+    {
+      return {
+        ...state,
+      };
+    }
+    case REQUEST_EVENTUALITY_SAVE_PROGRESS:
+    case REQUEST_EVENTUALITY_LIST:
+    case REQUEST_EVENTUALITY_SAVE_STATE_PROGRESS:
+    case REQUEST_EVENTUALITY_GET_COLUMNS_SEGMENT_PROGRESS:
+    case REQUEST_VALIDATE_EVENTUALITY_PROGRESS:
+    {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case REQUEST_EVENTUALITY_SAVE_SUCCESS:
+    case REQUEST_EVENTUALITY_SAVE_FAILED:
+    case REQUEST_EVENTUALITY_LIST_FAILED:
+    case REQUEST_EVENTUALITY_SAVE_STATE_SUCCESS:
+    case REQUEST_EVENTUALITY_SAVE_STATE_FAILED:
+    case REQUEST_EVENTUALITY_GET_COLUMNS_SEGMENT_FAILED:
+    case REQUEST_VALIDATE_EVENTUALITY_FAILED:
+    {
+      return {
+        ...state,
+        loading: false,
+      };
+    }
+    case REQUEST_EVENTUALITY_UPDATE_SUCCESS: {
+      return {
+        ...state,
+        aDataForm: action.aDataForm,
+      };
+    }
+    case REQUEST_EVENTUALITY_GET_COLUMNS_SEGMENT_SUCCESS: {
+      return {
+        ...state,
+        ltColumnSegment: action.ltColumnSegment,
+        loading: false,
+      };
+    }
+    case REQUEST_EVENTUALITY_DATA_CLEAR: {
+      return {
+        ...state,
+        aDataForm: [],
+      };
+    }
+    default: {
+      return state;
+    }
+  }
+}
